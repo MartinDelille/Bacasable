@@ -7,6 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       BOBO: "visible env var"
+      BABA: ${{ secrets.PRECIOUS }}
     steps:
       - name: Run env command
         run: echo $BOBO
+      - name: Run env command
+        run: echo $BABA
