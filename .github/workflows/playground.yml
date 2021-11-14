@@ -1,0 +1,16 @@
+name: Github action playground
+
+on: push
+
+jobs:
+  playground:
+    runs-on: ubuntu-latest
+    env:
+      BOBO: "visible env var"
+    steps:
+      - name: Run env command
+        run: echo $BOBO
+      - name: Run with command
+        with:
+          BIBI: "visibile with var"
+        run: echo $BIBI
