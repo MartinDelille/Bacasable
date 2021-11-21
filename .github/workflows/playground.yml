@@ -1,15 +1,21 @@
 name: Github action playground
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Person to greet'
+        required: true
+        default: 'Mona the Octocat'
+      home:
+        description: 'location'
+        required: false
+        default: 'The Octoverse'
 
 jobs:
-  playground:
+  say_hello:
     runs-on: ubuntu-latest
-    env:
-      BOBO: "visible env var"
-      BABA: ${{ secrets.PRECIOUS }}
     steps:
-      - name: Run env command
-        run: echo $BOBO
-      - name: Run env command
-        run: echo $BABA
+      - run: |
+        echo "Hello ${{ github.event.inputs.name }}!"
+        echo "- in ${{ github.event.inputs.home }}!"
