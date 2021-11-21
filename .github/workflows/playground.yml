@@ -1,6 +1,6 @@
 name: Github action playground
 
-on: push
+on: workflow_dispatch
 
 jobs:
   playground:
